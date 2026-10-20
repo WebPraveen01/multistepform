@@ -1,0 +1,455 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: #eef5ff;
+    color: #02295a;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    flex-direction: column;
+    gap: 20px;
+}
+.container{
+    display: flex;
+    width: 900px;
+    max-width: 100%;
+    min-height: 550px;
+    background-color: white;
+    padding: 16px;
+    border-radius: 15px;
+    gap: 50px;
+}
+.sidebar{
+    width: 280px;
+    flex-shrink: 0;
+    padding:35px 25px;
+    border-radius: 10px;
+     background-color: #483eff;
+     color: white;
+     display: flex;
+     flex-direction: column;
+     gap:30px
+}
+.step{
+    display: flex;
+    align-items: center;
+    gap:15px;
+}
+.step-number{
+    width: 35px;
+    height: 35px;
+    border: 1px solid white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+.step.active .step-number{
+    background-color: #bee2ff;
+    color: #3b50ab;
+    margin-bottom: 5px;
+}
+.step p{
+    font-size: 12px;
+    color:#d6d9e6;
+    margin-bottom: 5px;
+}
+.step h3{
+  font-size: 14px;
+  text-transform: uppercase;
+
+}
+.form-content{
+    flex:1;
+    min-width: 0;
+    padding: 35px 25px 20px 0;
+}
+.form-step h1{
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+.form-step >p{
+    color: #9699ab;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+#personal-form label{
+    display: block;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+#personal-form input{
+    width: 100%;
+    padding: 13px;
+    margin-bottom:8px;
+     border: 1px solid #d6d9e6;
+     border-radius: 6px;
+     font-size: 15px;
+}
+#personal-form input:focus{
+    outline: 1px solid #483eff;
+    border-color: #483eff;
+}
+.error{
+    display: block;
+    color: #ed3548;
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+.plan-container {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    width: 100%;
+    margin: 30px 0 15px;
+}
+.plan_card {
+  display: block;
+  flex: 1;
+  min-width: 0;
+  padding: 20px 12px;
+  border: 1px solid #d6d9e6;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+.plan_card:hover {
+  border-color: #483eff;
+}
+.plan_card.selected {
+   border: 1px solid #483eff;
+  background-color: #f0efff;
+}
+.plan_card h3 {
+   font-size: 16px;
+  margin-bottom: 8px;
+}
+.plan_card .plan-price {
+  font-size: 14px;
+  color: #9699ab;
+  margin-top: 8px;
+}
+.plan_card .yearly-benefit {
+  font-size: 12px;
+  color: #02295a;
+  margin-top: 8px;
+}
+.plan-price,
+.yearly-benefit {
+  font-size: 13px;
+  margin-top: 8px;
+  color: #9699ab;
+}
+.yearly-benefit {
+  color: #02295a;
+  font-weight: bold;
+}
+/* Billing toggle */
+.billing-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  margin: 25px 0;
+  background-color: #f8f9fe;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.billing-toggle label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.billing-toggle input {
+  cursor: pointer;
+}
+.addon_card{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding:18px;
+    margin-bottom: 15px;
+    border: 1px solid #d6d9e6;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.addon_card:hover {
+    border-color: #483eff;
+}
+.addon_card.selected {
+  border-color: #483eff;
+  background-color: #f0efff;
+}
+.addon_card input {
+  width: 18px;
+  height: 18px;
+  accent-color: #483eff;
+  cursor: pointer;
+}
+.addon_card div {
+  flex: 1;
+}
+.addon_card h3 {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+.addon_card p {
+  color: #9699ab;
+  font-size: 12px;
+}
+.addon-price {
+  color: #483eff;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.addon_card.selected {
+  border: 1px solid #483eff;
+  background-color: #f0f0ff;
+}
+.summary {
+  padding: 20px;
+  background-color: #f8f9fe;
+  border-radius: 8px;
+}
+.summary-plan {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #d6d9e6;
+}
+.summary-plan h3 {
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+#change-plan {
+  border: none;
+  background: none;
+  color: #9699ab;
+  text-decoration: underline;
+  cursor: pointer;
+}
+#summary-plan-price {
+  font-weight: bold;
+}
+#plan-error {
+    display: block;
+    color: #ed3548;
+    text-align: center;
+}
+.summary-addon {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 18px;
+  font-size: 13px;
+}
+.summary-addon span:first-child {
+  color: #9699ab;
+}
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0 0;
+  margin-top: 10px;
+  color: #9699ab;
+  font-size: 14px;
+}
+#summary-total-price {
+  color: #483eff;
+  font-size: 18px;
+}
+.button-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 35px;
+}
+.button-container button {
+  padding: 13px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+#next-button,
+#next-button-2,
+#next-button-3,
+#confirm-button {
+  background-color: #02295a;
+  color: white;
+  margin-left: auto;
+}
+#next-button:hover,
+#next-button-2:hover,
+#next-button-3:hover,
+#confirm-button:hover {
+  background-color: #164a8a;
+}
+.back-button {
+  background: transparent;
+  color: #9699ab;
+}
+.back-button:hover {
+  color: #02295a;
+}
+/* Thank you screen */
+#step-thank-you {
+  text-align: center;
+  padding-top: 100px;
+}
+
+#step-thank-you h1 {
+  margin-bottom: 20px;
+}
+
+.sidebar {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.sidebar-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.desktop-image {
+    display: block;
+}
+
+.mobile-image {
+    display: none;
+}
+.plan_card img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    display: block;
+    margin-bottom: 35px;
+}
+.attribution{
+  margin-top: 20px;
+  font-size: 16px;
+  text-align: center;
+}
+.attribution a{
+  color: #3829e0;
+}
+
+
+/* Mobile layout */
+@media (max-width: 650px) {
+  body {
+    display: block;
+    padding: 0;
+    background-color: #eef5ff;
+  }
+
+  .container {
+    display: block;
+    width: 100%;
+    min-height: 100vh;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+  }
+
+    .desktop-image {
+        display: none;
+    }
+
+    .mobile-image {
+        display: block;
+    }
+        .plan_card img {
+        margin-bottom: 0;
+    }
+
+  .sidebar {
+    width: 100%;
+    min-height: 170px;
+    border-radius: 0;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+    padding: 30px 15px;
+  }
+
+  .step {
+    align-items: center;
+  }
+
+  .step > div {
+    display: none;
+  }
+
+  .form-content {
+    position: relative;
+    margin: -40px 16px 20px;
+    padding: 25px 20px;
+    background-color: white;
+    border-radius: 10px;
+  }
+
+  .form-step h1 {
+    font-size: 24px;
+  }
+
+  .plan-container {
+    flex-direction: column;
+  }
+
+  .plan_card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .plan_card h3 {
+    margin: 0;
+  }
+
+  .plan-price {
+    margin-left: auto;
+  }
+
+  .yearly-benefit {
+    margin-top: 0;
+  }
+
+  .addon_card {
+    padding: 13px 10px;
+    gap: 10px;
+  }
+
+  .addon_card h3 {
+    font-size: 13px;
+  }
+
+  .addon-price {
+    font-size: 12px;
+  }
+}
