@@ -159,6 +159,7 @@ backButtons.forEach((button)=>{
 
 })
 
+    showStep(1);
 
 document.querySelector("#next-button-3").addEventListener("click", () => {
   if (selectedPlan === null) {
