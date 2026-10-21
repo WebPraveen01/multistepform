@@ -207,6 +207,8 @@ document.querySelectorAll("button#next-button").forEach((button) => {
       planError.textContent = "Please select a plan";
     } else if (currentStep === 3) {
       showSummary();
+    } else if (currentStep === 4) {
+      showStep(5);
     }
   });
 });
@@ -216,16 +218,4 @@ showStep(1);
 
 document.querySelector("#change-plan").addEventListener("click", () => {
   showStep(2);
-
-});
-
-document.querySelector("#confirm-button").addEventListener("click", () => {
-  steps.forEach((step) => {
-    step.hidden = true;
-    step.classList.remove("active");
-  });
-
-  const thankYouStep = document.querySelector("#step-thank-you");
-  thankYouStep.hidden = false;
-  thankYouStep.classList.add("active");
 });
