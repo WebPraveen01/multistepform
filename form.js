@@ -5,20 +5,14 @@ const sidebarSteps = document.querySelectorAll(".sidebar .step");
 let currentStep = 1;
 
 function showStep(stepNumber) {
-  steps.forEach((step) => {
-    step.hidden = true;
+  steps.forEach((step, index) => {
+    const isActive = index === stepNumber - 1;
+    step.hidden = !isActive;
+    step.classList.toggle("active", isActive);
   });
 
-  const activeStep = document.querySelector(`#step-${stepNumber}`);
-
-  if (activeStep) {
-    activeStep.hidden = false;
-  }
-
   sidebarSteps.forEach((step, index) => {
-     const isActive = index === stepNumber - 1;
-  step.hidden = !isActive;
-  step.classList.toggle("active", isActive);
+    step.classList.toggle("active", index === stepNumber - 1);
   });
 
   currentStep = stepNumber;
@@ -223,7 +217,10 @@ document.querySelector("#change-plan").addEventListener("click", () => {
 document.querySelector("#confirm-button").addEventListener("click", () => {
   steps.forEach((step) => {
     step.hidden = true;
+    step.classList.remove("active");
   });
 
-  document.querySelector("#step-thank-you").hidden = false;
+  const thankYouStep = document.querySelector("#step-thank-you");
+  thankYouStep.hidden = false;
+  thankYouStep.classList.add("active");
 });
