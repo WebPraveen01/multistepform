@@ -1,6 +1,7 @@
 
 const steps = document.querySelectorAll(".form-step");
 const sidebarSteps = document.querySelectorAll(".sidebar .step");
+const nextButtons = document.querySelectorAll("button#next-button");
 
 let currentStep = 1;
 
@@ -10,6 +11,15 @@ function showStep(stepNumber) {
 
     step.hidden = !isActive;
     step.classList.toggle("active", isActive);
+  });
+
+  nextButtons.forEach((button) => {
+    const isActive = button.closest(".form-step")?.id === `step-${stepNumber}`;
+    if (isActive) {
+      button.id = "next-button";
+    } else {
+      button.removeAttribute("id");
+    }
   });
 
   sidebarSteps.forEach((step, index) => {
@@ -58,15 +68,6 @@ function validatePersonalInfo() {
 }
 
 
-document.querySelector("#next-button").addEventListener("click", () => {
-  if (validatePersonalInfo()) {
-    showStep(2);
-  }
-});
-
-
-
-
 const planCards = document.querySelectorAll(".plan_card");
 const planError = document.querySelector("#plan-error");
 
@@ -86,17 +87,6 @@ planCards.forEach((card) => {
     console.log("Selected plan:", selectedPlan.dataset.plan);
   });
 });
-
-document.querySelector("#next-button-2").addEventListener("click", () => {
-  if (selectedPlan === null) {
-    planError.textContent = "Please select a plan";
-    return;
-  }
-
-  showStep(3);
-});
-
-
 
 const billingToggle = document.querySelector("#billing-toggle");
 const planPrices = document.querySelectorAll(".plan-price");
@@ -155,9 +145,7 @@ backButtons.forEach((button)=>{
 
 })
 
-    showStep(1);
-
-document.querySelector("#next-button-3").addEventListener("click", () => {
+function showSummary() {
   if (selectedPlan === null) {
     showStep(2);
     planError.textContent = "Please select a plan";
@@ -206,7 +194,24 @@ document.querySelector("#next-button-3").addEventListener("click", () => {
 
   document.querySelector("#total-label").textContent =
     `Total (per ${billingToggle.checked ? "year" : "month"})`;
+}
+
+document.querySelectorAll("button#next-button").forEach((button) => {
+  button.addEventListener("click", () => {
+    if (currentStep === 1 && validatePersonalInfo()) {
+      showStep(2);
+    } else if (currentStep === 2 && selectedPlan !== null) {
+      planError.textContent = "";
+      showStep(3);
+    } else if (currentStep === 2) {
+      planError.textContent = "Please select a plan";
+    } else if (currentStep === 3) {
+      showSummary();
+    }
+  });
 });
+
+showStep(1);
 
 
 document.querySelector("#change-plan").addEventListener("click", () => {
