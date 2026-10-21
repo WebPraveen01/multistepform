@@ -58,7 +58,7 @@ function validatePersonalInfo() {
 }
 
 
-document.querySelector("#next-button").addEventListener("click", () => {
+document.querySelector("#first-button").addEventListener("click", () => {
   if (validatePersonalInfo()) {
     showStep(2);
   }
