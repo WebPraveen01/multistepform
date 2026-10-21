@@ -416,10 +416,18 @@ body{
   .form-step h1 {
     font-size: 24px;
   }
+  .form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+}
 
   .plan-container {
     flex-direction: column;
   }
+
 
   .plan_card {
     display: flex;

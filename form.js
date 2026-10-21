@@ -16,7 +16,9 @@ function showStep(stepNumber) {
   }
 
   sidebarSteps.forEach((step, index) => {
-    step.classList.toggle("active", index === stepNumber - 1);
+     const isActive = index === stepNumber - 1;
+  step.hidden = !isActive;
+  step.classList.toggle("active", isActive);
   });
 
   currentStep = stepNumber;
