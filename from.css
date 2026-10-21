@@ -76,12 +76,17 @@ body{
     font-size: 30px;
     margin-bottom: 12px;
 }
-  .form-step {
-    display: none;
-  }
-  .form-step.active {
-    display: block;
-  }
+.form-step {
+  display: none;
+}
+
+.form-step.active {
+  display: block;
+}
+
+.form-step[hidden] {
+  display: none !important;
+}
 .form-step >p{
     color: #9699ab;
     line-height: 1.6;

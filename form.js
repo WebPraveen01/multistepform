@@ -4,9 +4,23 @@ const sidebarSteps = document.querySelectorAll(".sidebar .step");
 
 let currentStep = 1;
 
+// function showStep(stepNumber) {
+//   steps.forEach((step, index) => {
+//     const isActive = index === stepNumber - 1;
+//     step.hidden = !isActive;
+//     step.classList.toggle("active", isActive);
+//   });
+
+//   sidebarSteps.forEach((step, index) => {
+//     step.classList.toggle("active", index === stepNumber - 1);
+//   });
+
+//   currentStep = stepNumber;
+// }
 function showStep(stepNumber) {
   steps.forEach((step, index) => {
     const isActive = index === stepNumber - 1;
+
     step.hidden = !isActive;
     step.classList.toggle("active", isActive);
   });
